@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head><meta charset="UTF-8"><title>Cadastro de Médicos</title></head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+<?php include 'php/protege.php'; ?>
+<h2>Cadastrar Médico</h2>
+<form method="POST" action="php/medico.php">
+    Nome: <input type="text" name="nome" required><br>
+    Especialidade: <input type="text" name="especialidade" required><br>
+    <input type="submit" value="Cadastrar">
+</form>
+</body>
+</html>

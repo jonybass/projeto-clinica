@@ -1,0 +1,50 @@
+<?php
+include 'php/protege.php';
+include 'php/conexao.php';
+
+// Buscar médicos
+$medicos = $conexao->query("SELECT id, nome, especialidade FROM Medico");
+
+// Buscar pacientes
+$pacientes = $conexao->query("SELECT id, nome FROM Paciente");
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Registrar Consulta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<h2>Registrar Consulta</h2>
+
+<form method="POST" action="php/consulta.php">
+    Médico:
+    <select name="id_medico" required>
+        <option value="">Selecione</option>
+        <?php while ($medico = $medicos->fetch_assoc()): ?>
+            <option value="<?= $medico['id'] ?>"><?= $medico['nome'] ?> - <?= $medico['especialidade'] ?> </option>
+        <?php endwhile; ?>
+    </select><br><br>
+
+    Paciente:
+    <select name="id_paciente" required>
+        <option value="">Selecione</option>
+        <?php while ($paciente = $pacientes->fetch_assoc()): ?>
+            <option value="<?= $paciente['id'] ?>"><?= $paciente['nome'] ?></option>
+        <?php endwhile; ?>
+    </select><br><br>
+
+    Data e Hora: <input type="datetime-local" name="data_hora" required><br><br>
+    Observações:<br>
+    <textarea name="observacoes"></textarea><br><br>
+
+    <input type="submit" value="Registrar">
+</form>
+
+</body>
+</html>
+
