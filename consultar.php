@@ -17,6 +17,16 @@ $pacientes = $pdo->query("SELECT * FROM Paciente")->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
+    <nav>
+        <a href="index.php">Página Inicial</a>
+        <a href="medico.php">Cadastro de Médicos</a>
+        <a href="paciente.php">Cadastro de Pacientes</a>
+        <a href="consulta.php">Registrar Consulta</a>
+        <a href="php/consultas_registradas.php">Consultas Marcadas</a>
+        <a href="logout.php">Sair</a>
+    </nav>
+
+
     <h1>Médicos Cadastrados</h1>
     <table border="1" cellpadding="8" cellspacing="0">
         <tr>
