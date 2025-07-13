@@ -83,7 +83,7 @@ if (isset($_GET['id_medico'], $_GET['id_paciente'], $_GET['data_hora'])) {
         <a href="../medico.php">Cadastro de Médicos</a>
         <a href="../paciente.php">Cadastro de Pacientes</a>
         <a href="../consultar.php">Cadastros</a>
-        <a href="logout.php">Sair</a>
+        <a href="../logout.php">Sair</a>
     </nav>
 
     <h2>Consultas Registradas</h2>
