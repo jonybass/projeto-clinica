@@ -12,6 +12,6 @@
         Senha: <input type="password" name="senha" required><br>
         <input type="submit" value="Entrar">
     </form>
-    <p><a href="registrar.html">Registrar novo usuário</a></p>
+    <p><a href="registrar.php">Registrar novo usuário</a></p>
 </body>
 </html>

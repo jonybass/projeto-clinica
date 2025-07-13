@@ -6,19 +6,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT * FROM Usuario WHERE email='$email'";
-    $res = $conexao->query($sql);
+    $sql = "SELECT * FROM Usuario WHERE email = :email LIMIT 1";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':email' => $email]);
 
-    if ($res->num_rows == 1) {
-        $usuario = $res->fetch_assoc();
+    if ($stmt->rowCount() == 1) {
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
         if (password_verify($senha, $usuario['senha'])) {
             $_SESSION['usuario'] = $usuario['nome'];
             header("Location: ../index.php");
-        } else {
-            echo "Senha incorreta!";
+            exit;
         }
-    } else {
-        echo "Usuário não encontrado!";
     }
+    echo "Credenciais inválidas!";
 }
 ?>
