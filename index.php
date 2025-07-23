@@ -6,7 +6,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-include 'php/conexao.php'; // Inclui conexão PDO
+include 'php/conexao.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
