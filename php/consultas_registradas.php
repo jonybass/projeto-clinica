@@ -2,7 +2,7 @@
 include 'protege.php';
 include 'conexao.php';
 
-// Edição da consulta, se vier via GET
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['modo']) && $_POST['modo'] === 'editar') {
     $id_medico_original = $_POST['id_medico_original'];
     $id_paciente = $_POST['id_paciente'];
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['modo']) && $_POST['mo
     }
 }
 
-// Carregar dados para exibição
+
 try {
     $stmt = $pdo->query("
         SELECT 
@@ -53,12 +53,12 @@ try {
     die("Erro ao buscar consultas: " . $e->getMessage());
 }
 
-// Carrega especialidades e médicos
+
 $especialidades = $pdo->query("SELECT DISTINCT especialidade FROM Medico")->fetchAll(PDO::FETCH_COLUMN);
 $medicos_todos = $pdo->query("SELECT id, nome, especialidade FROM Medico")->fetchAll(PDO::FETCH_ASSOC);
 $pacientes = $pdo->query("SELECT id, nome FROM Paciente")->fetchAll(PDO::FETCH_ASSOC);
 
-// Caso seja edição, carrega consulta específica
+
 $consulta_editar = null;
 if (isset($_GET['id_medico'], $_GET['id_paciente'], $_GET['data_hora'])) {
     $stmt = $pdo->prepare("SELECT * FROM Consulta WHERE id_medico = :id_medico AND id_paciente = :id_paciente AND data_hora = :data_hora");
@@ -167,7 +167,7 @@ if (isset($_GET['id_medico'], $_GET['id_paciente'], $_GET['data_hora'])) {
                     option.style.display = (esp === especialidade) ? 'block' : 'none';
                 }
 
-                // Reseta seleção se o médico não pertencer à especialidade
+                
                 const selected = medicoSelect.options[medicoSelect.selectedIndex];
                 if (selected && selected.style.display === 'none') {
                     medicoSelect.selectedIndex = 0;
