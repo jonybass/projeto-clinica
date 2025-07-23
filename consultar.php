@@ -2,10 +2,10 @@
 include 'php/protege.php';
 include 'php/conexao.php';
 
-// Buscar médicos
+
 $medicos = $pdo->query("SELECT * FROM Medico")->fetchAll(PDO::FETCH_ASSOC);
 
-// Buscar pacientes
+
 $pacientes = $pdo->query("SELECT * FROM Paciente")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
