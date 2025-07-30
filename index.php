@@ -1,12 +1,30 @@
 <?php
 session_start();
 
+include 'php/conexao.php';
+$id =  $_SESSION['id_usuario_logado'];
+
+$stmt = $pdo->prepare("SELECT usuario.*, imagens.path  
+                    FROM usuario 
+                    LEFT JOIN imagens ON usuario.imagem_id = imagens.id                     
+                    WHERE usuario.id = ?");
+$stmt->execute([$id]);
+$usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Definir imagem padrão se não houver imagem associada
+
+if ($usuario['path']) {
+    $imagemPath = '/img/' . $usuario['path'];
+} else {
+    $imagemPath = '/img/profile.jpg'; // Imagem padrão
+}
+// var_dump($imagemPath);
 if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
     exit;
 }
 
-include 'php/conexao.php'; 
+include 'php/conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,7 +34,7 @@ include 'php/conexao.php';
 </head>
 <body>
     <h1>Bem-vindo à Clínica</h1>
-    <p>Usuário logado: <?php echo htmlspecialchars($_SESSION['usuario']); ?></p>
+    <p>Usuário logado: <?php echo htmlspecialchars($_SESSION['usuario']) , $_SESSION['id_usuario_logado']; ?></p>
     <ul>
         <li><a href="medico.php">Cadastro de Médicos</a></li>
         <li><a href="paciente.php">Cadastro de Pacientes</a></li>

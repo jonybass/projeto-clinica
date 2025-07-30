@@ -35,3 +35,14 @@ CREATE TABLE Consulta (
     FOREIGN KEY (id_medico) REFERENCES Medico(id) ON DELETE CASCADE,
     FOREIGN KEY (id_paciente) REFERENCES Paciente(id) ON DELETE CASCADE
 );
+
+-- Criar a tabela de imagens
+CREATE TABLE imagens (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    path VARCHAR(255) NOT NULL
+);
+
+-- Adicionar a chave estrangeira na tabela alunos
+ALTER TABLE Paciente
+ADD COLUMN imagem_id INT,
+ADD FOREIGN KEY (imagem_id) REFERENCES imagens(id) ON DELETE SET NULL;
