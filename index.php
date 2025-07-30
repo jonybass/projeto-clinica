@@ -24,7 +24,7 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-include 'php/conexao.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -35,6 +35,10 @@ include 'php/conexao.php';
 <body>
     <h1>Bem-vindo à Clínica</h1>
     <p>Usuário logado: <?php echo htmlspecialchars($_SESSION['usuario']) , $_SESSION['id_usuario_logado']; ?></p>
+    <img src="<?= htmlspecialchars($imagemPath) ?>" alt="Imagem de Perfil" style="width: 150px; height: 150px;">
+
+    
+   
     <ul>
         <li><a href="medico.php">Cadastro de Médicos</a></li>
         <li><a href="paciente.php">Cadastro de Pacientes</a></li>
