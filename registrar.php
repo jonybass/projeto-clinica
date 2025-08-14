@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Registrar</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h2>Registrar Novo Usuário</h2>

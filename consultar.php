@@ -14,6 +14,7 @@ $pacientes = $pdo->query("SELECT * FROM Paciente")->fetchAll(PDO::FETCH_ASSOC);
 <head>
     <meta charset="UTF-8">
     <title>Consulta de Médicos e Pacientes</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 

@@ -75,6 +75,7 @@ if (isset($_GET['id_medico'], $_GET['id_paciente'], $_GET['data_hora'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <title>Consultas Registradas</title>
 </head>
 <body>
