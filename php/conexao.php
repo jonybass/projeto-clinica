@@ -3,7 +3,7 @@
 $host = 'localhost:3306';
 $db = 'clinica';
 $user = 'root';
-$pass = 'jony0892';
+$pass = 'root';
 
 
 try {
